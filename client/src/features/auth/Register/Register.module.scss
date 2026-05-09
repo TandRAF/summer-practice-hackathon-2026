@@ -1,0 +1,25 @@
+@use '../../../styles/index.scss' as *;
+
+.register{
+    width: 25rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include xs{
+        width: 90%;
+    }
+    &__title{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    p,h4{
+        text-align: center;
+    }
+}

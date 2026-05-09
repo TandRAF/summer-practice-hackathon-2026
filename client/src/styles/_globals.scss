@@ -1,0 +1,88 @@
+/*
+#########################
+  SCSS GLOBALS
+#########################
+*/
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: $font-family-base;
+}
+ul,ol{
+  padding: 0;
+  li{
+    list-style: none;
+  }
+}
+body{
+    background-color: $color-bg;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  color: $color-text;
+}
+h1{
+  font-size: 3.5rem;
+  @include md{
+    font-size: 3rem;
+  }
+  @include sm{
+    font-size: 2.5rem;
+  }
+  @include xs{
+    font-size: 2rem;
+  }
+}
+h2{
+  font-size: 3rem;
+  @include md{
+    font-size: 2.5rem;
+  }
+  @include sm{
+    font-size: 2rem;
+  }
+  @include xs{
+    font-size: 1.5rem;
+  }
+}
+h3{
+  font-size: 2.5rem;
+}
+h4{
+  font-size: 2rem;
+}
+h5{
+  font-size: 1.5rem;
+}
+p{
+  @include font-style(1rem, "Light");
+  line-height: 150%;
+  padding: 0;
+  margin: 0;
+}
+.icon{
+    .primary{
+      fill: $icon-primary-color;
+    }
+    .secundary{
+      fill: $icon-secundary-color;
+    }
+    .dark{
+      fill: $icon-dark-color;
+    }
+}
+
+a{
+  text-decoration: none;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+*{
+  box-sizing: border-box;
+}

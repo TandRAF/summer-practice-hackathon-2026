@@ -1,0 +1,131 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+$utilities: (
+    display: (
+        "prefix": "", 
+        "values": (
+            "flex": flex,
+            "block": block,
+            "hidden": none,
+        )
+    ),
+    flex-direction: (
+        "prefix": "flex", 
+        "values": (
+            "row": row,
+            "row-reverse": row-reverse,
+            "col": column,
+            "col-reverse": column-reverse,
+        )
+    ),
+    // --- NEW FLEX UTILITIES START HERE ---
+    justify-content: (
+        "prefix": "justify",
+        "values": (
+            "start": flex-start,
+            "end": flex-end,
+            "center": center,
+            "between": space-between,
+            "around": space-around,
+            "evenly": space-evenly,
+        )
+    ),
+    align-items: (
+        "prefix": "items",
+        "values": (
+            "start": flex-start,
+            "end": flex-end,
+            "center": center,
+            "baseline": baseline,
+            "stretch": stretch,
+        )
+    ),
+    flex-wrap: (
+        "prefix": "flex",
+        "values": (
+            "wrap": wrap,
+            "wrap-reverse": wrap-reverse,
+            "nowrap": nowrap,
+        )
+    ),
+    gap: (
+        "prefix": "gap",
+        "values": (
+            "0": 0,
+            "xs": $space,          
+            "sm": $space * 2,      
+            "md": $space * 4,      
+            "lg": $space * 6,      
+            "xl": $space * 8, 
+        )
+    ),
+    // --- NEW FLEX UTILITIES END HERE ---
+    padding: (
+        "prefix": "p",
+        "values": (
+            "0": 0,
+            "xs": $space,          
+            "sm": $space * 2,      
+            "md": $space * 4,      
+            "lg": $space * 6,      
+            "xl": $space * 8,      
+            "container": 24px      
+        )
+    ),
+    padding-left: (
+        "prefix": "pl",
+        "values": (
+            "0": 0,
+            "1": $padding-space,
+            "2": $padding-space * 2,
+            "3": $padding-space * 4,
+            "4": $padding-space * 6,
+            "5": $padding-space * 8,
+        )
+    ),
+);
+
+
+@each $property, $map in $utilities {
+    $prefix: map.get($map, prefix);
+    $values: map.get($map, values);
+
+    @each $k, $v in $values {
+        $className: "";
+        @if $prefix == "" {
+            $className: #{$k};
+        } @else {
+            $className: #{$prefix}-#{$k};
+        }
+        
+        .#{$className} {
+            #{$property}: $v;
+        }
+    }
+}
+
+
+@each $key, $val in $breakpoints {
+    @media (min-width: $val) {
+        @each $property, $map in $utilities {
+            $prefix: map.get($map, prefix);
+            $values: map.get($map, values);
+
+            @each $k, $v in $values {
+                $className: "";
+                @if $prefix == "" {
+                    $className: #{$k};
+                } @else {
+                    $className: #{$prefix}-#{$k};
+                }
+                
+                .#{$key}\:#{$className} {
+                    #{$property}: $v !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+/*
+#########################
+  SCSS MIXINS
+#########################
+*/
+@use 'variables' as *;
+@use "sass:map";
+// Breack Ponts Mixins for different Windows 
+@mixin min-max($min, $max){
+    min-width: $min;
+    max-width: $max;
+}
+@mixin xs {
+    @media (max-width:map.get($breakpoints, "xs")) {
+        @content;
+    }  
+}
+@mixin sm {
+    @media (max-width:map.get($breakpoints, "sm")) {
+        @content;
+    }  
+}
+@mixin md {
+    @media (max-width:map.get($breakpoints, "md")) {
+        @content;
+    }  
+}
+@mixin lg {
+    @media (max-width:map.get($breakpoints, "lg")) {
+        @content;
+    }  
+}
+@mixin xl {
+    @media (max-width:map.get($breakpoints, "xl")) {
+        @content;
+    }  
+}
+/// Font Style
+@mixin font-style($size,$width){
+    font-family: $font-family-base;
+    font-weight: map.get($map: $font-weight-map, $key: $width);
+    color: $color-text;
+    font-size: $size !important;
+}
+
+@mixin block-border{
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='%234D4E52' stroke-width='1' stroke-dasharray='15%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}

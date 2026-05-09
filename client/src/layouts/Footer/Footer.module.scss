@@ -1,0 +1,89 @@
+@use '../../styles/index.scss' as *;
+
+.footer-container {
+    background-color: #000;
+    color: #fff;
+    padding: 4rem 2rem 0 2rem; /* No padding on the bottom so the text touches the edge */
+    display: flex;
+    flex-direction: column;
+    min-height: 450px; /* Gives the footer some breathing room */
+    overflow: hidden; /* CRUCIAL: Clips the bottom of the massive text */
+
+    @include sm {
+        padding: 2rem 1rem 0 1rem;
+        min-height: 300px;
+    }
+
+    // --- Top Section Layout ---
+    &--top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        @include sm {
+            flex-direction: column-reverse; /* Puts login link at the top on mobile */
+            gap: 2rem;
+        }
+    }
+
+    // --- The Two Text Paragraphs ---
+    &--columns {
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        max-width: 60%;
+
+        @include md {
+            gap: 2rem;
+            max-width: 80%;
+        }
+
+        @include sm {
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            flex: 1;
+            color: $color-bg;
+        }
+    }
+
+    // --- Login Link ---
+    &--login {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        @include sm {
+            align-self: flex-end; /* Pushes Login to the right on mobile */
+        }
+    }
+
+    // --- Bottom Section Layout ---
+    &--bottom {
+        margin-top: auto; /* Pushes the brand text to the very bottom */
+        width: 100%;
+    }
+    &--brand {
+        color: $color-bg;
+        margin: 0;
+        font-size: 14vw; 
+        font-weight: 900;
+        line-height: 0.75;
+        letter-spacing: -0.04em;
+        text-transform: none;
+        white-space: nowrap; 
+        transform: translateY(3vw);
+        margin-left: -4vw; 
+    }
+}

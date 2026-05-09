@@ -1,0 +1,33 @@
+/*
+#########################
+    SCSS MIXINS
+#########################
+*/
+
+:root {
+    --color-primary: #090a0d;     
+    --color-primary-hover: #353535;
+    --color-secondary: #a7a7a7;    
+    --color-secondary-hover: #f1eded;
+    --color-bg: #fcf8f8;           
+    --color-block: #e3e3e3;     
+    --color-card: #e9e9e9;       
+    --color-border: #141414;   
+    --color-text: #1c1b1c;       
+    --color-text-muted: #46474a;  
+}
+
+// // the dark theme, set by a hook
+// [data-theme='dark'] {
+//   --color-primary: #60a5fa;
+//   --color-primary-hover: #3b82f6;
+//   --color-bg: #111827;
+//   --color-text: #f9fafb;
+// }
+// // the dark theme, set by a hook
+// [data-theme='light'] {
+//   --color-primary: #60a5fa;
+//   --color-primary-hover: #3b82f6;
+//   --color-bg: #111827;
+//   --color-text: #f9fafb;
+// }

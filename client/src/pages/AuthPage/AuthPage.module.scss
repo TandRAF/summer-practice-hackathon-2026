@@ -1,0 +1,25 @@
+@use '../../styles/index.scss' as *;
+
+.authpage{
+    height: 94vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-content: center;
+    align-items: center;
+    &--container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        a{
+            width: fit-content;
+            border-bottom: none!important;
+        }
+    }
+    @include md{
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        grid-template-columns: 1fr ;
+    }
+}
