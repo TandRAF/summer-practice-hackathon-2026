@@ -12,6 +12,10 @@ import { globalErrorHandler } from './shared/middlewares/error.middleware.js';
 import { asyncHandler } from './shared/middlewares/asyncHandler.js';
 import { getProfileController,updateProfileController,updateAvatarController } from './features/profile/profile.controller.js';
 import { profileRouter } from './features/profile/profile.routes.js';
+import { availabilityRouter } from './features/availability/availability.routes.js';
+import { sportsRouter } from './features/sports/sports.routes.js';
+import { groupsRouter } from './features/groups/groups.routes.js';
+import { eventsRouter } from './features/events/events.routes.js';
 
 dotenv.config();
 
@@ -40,8 +44,16 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-
+// Profile Routes
 app.use('/api/profile', profileRouter);
+// Availability Routes
+app.use('/api/availability', availabilityRouter);
+// Sports Routes
+app.use('/api/sports', sportsRouter);
+// Groups Routes
+app.use('/api/groups', groupsRouter);
+// Events Routes
+app.use('/api/events', eventsRouter);
 // Authentication
 app.post('/api/auth/login', asyncHandler(loginController));
 app.post('/api/auth/register', asyncHandler(registerController));

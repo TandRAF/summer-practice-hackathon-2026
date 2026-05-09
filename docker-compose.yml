@@ -13,16 +13,18 @@ services:
     volumes:
       - ./api:/app
       - /app/node_modules
+
   frontend:
-    build: ./client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev # 1. Ne folosim de Dockerfile-ul nou creat pentru dev
     container_name: showup2move-client
     ports:
-      - "3000:80" 
+      - "3000:5173" # 2. Mapăm portul tău 3000 pe portul nativ de Vite (5173)
     environment:
-      - VITE_API_URL=${VITE_API_URL}
-      - PORT=80  
+      - VITE_API_URL=${VITE_API_URL} # 3. Mutat din 'args' în 'environment' ca să fie citit live de serverul Vite
     depends_on:
       - api
     volumes:
-      - ./client:/app
-      - /app/node_modules
+      - ./client:/app # 4. Mapează folderul local în container pentru Live Reload!
+      - /app/node_modules # Protejează librăriile interne ale containerului
