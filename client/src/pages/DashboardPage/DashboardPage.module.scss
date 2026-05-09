@@ -1,0 +1,203 @@
+/* DashboardPage.module.scss */
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-border: #e5e5e5;
+$color-text-muted: #717171;
+$color-surface-hover: #f5f5f5;
+
+$font-inter: 'Inter', sans-serif;
+$font-mono: monospace;
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  font-family: $font-inter;
+  color: $color-black;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 48px;
+  border-bottom: 2px solid $color-black;
+  padding-bottom: 16px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px 0;
+  }
+}
+
+.headerSub {
+  font-family: $font-mono;
+  font-size: 13px;
+  color: $color-text-muted;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.card {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.loadingBar {
+  height: 2px;
+  background-color: $color-black;
+  width: 30%;
+  animation: loading 1.5s infinite ease-in-out;
+  margin-bottom: 16px;
+}
+
+@keyframes loading {
+  0%   { transform: translateX(0); width: 10%; }
+  50%  { width: 50%; }
+  100% { transform: translateX(300px); width: 10%; }
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.metaData {
+  font-family: $font-mono;
+  font-size: 13px;
+  color: $color-text-muted;
+  margin: 0 0 24px 0;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background-color: $color-black;
+  color: $color-white;
+  border: none;
+  padding: 12px 24px;
+  font-family: $font-inter;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+
+  &:hover { background-color: #333; }
+}
+
+.secondaryButton {
+  background-color: $color-white;
+  color: $color-black;
+  border: 1px solid $color-black;
+  padding: 12px 24px;
+  font-family: $font-inter;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.15s;
+  white-space: nowrap;
+
+  &:hover { background-color: $color-surface-hover; }
+}
+
+.ghostButton {
+  background: none;
+  border: none;
+  color: $color-black;
+  font-family: $font-inter;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 12px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+
+  &:hover { text-decoration: underline; }
+}
+
+/* ── Group list ───────────────────────────────────────────────────────── */
+.groupList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    border-bottom: 1px solid $color-border;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    &:last-child { border-bottom: none; }
+  }
+}
+
+.groupInfo {
+  flex: 1;
+
+  .sportName {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+  }
+
+  .metaData {
+    margin: 0;
+  }
+}
+
+.actionGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  border: 1px solid $color-black;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: $color-white;
+  white-space: nowrap;
+
+  &.active {
+    background-color: $color-black;
+    color: $color-white;
+  }
+}
+
+.tagGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

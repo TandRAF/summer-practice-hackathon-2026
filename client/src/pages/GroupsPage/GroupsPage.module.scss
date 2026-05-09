@@ -1,0 +1,321 @@
+/* GroupPage.module.scss */
+$color-black: #000000;
+$color-white: #ffffff;
+$color-border: #e5e5e5;
+$color-text-muted: #717171;
+$font-mono: 'Space Mono', monospace;
+
+/* ── DETAIL LAYOUT (3-column) ─────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  height: calc(100vh - 64px);
+  background-color: $color-white;
+}
+
+.sidebar {
+  border-right: 1px solid $color-black;
+  padding: 32px 24px;
+  overflow-y: auto;
+
+  &.right {
+    border-right: none;
+    border-left: 1px solid $color-black;
+  }
+
+  h2 {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    border-bottom: 2px solid $color-black;
+    padding-bottom: 8px;
+  }
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  &:hover { text-decoration: underline; }
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.infoLabel {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: $color-text-muted;
+}
+
+.statusLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-top: 8px;
+}
+
+/* ── CHAT ─────────────────────────────────────────────────────────────── */
+.chatArea {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+.messageList {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 16px;
+  border: 1px solid $color-black;
+  background: $color-white;
+
+  .sender {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  &.ownMessage {
+    align-self: flex-end;
+    background: $color-black;
+    color: $color-white;
+  }
+}
+
+.inputArea {
+  padding: 24px;
+  background: $color-white;
+  border-top: 1px solid $color-black;
+  display: flex;
+  gap: 12px;
+
+  input {
+    flex: 1;
+    border: 1px solid $color-black;
+    padding: 12px;
+    font-family: inherit;
+    &:focus { outline: none; }
+  }
+
+  button {
+    background: $color-black;
+    color: $color-white;
+    border: none;
+    padding: 0 24px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+/* ── MEMBER ITEMS ─────────────────────────────────────────────────────── */
+.memberItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.fullName {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.badgeGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.captainBadge {
+  font-size: 10px;
+  background: $color-black;
+  color: $color-white;
+  padding: 2px 6px;
+  font-weight: 700;
+}
+
+.statusTag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border: 1px solid $color-black;
+  text-transform: uppercase;
+
+  &.joined    { border-color: #aaa; color: #aaa; }
+  &.confirmed { border-color: #000; color: #000; background: #e6ffe6; }
+  &.declined  { border-color: #000; color: #000; background: #ffe6e6; }
+}
+
+/* ── LIST VIEW ────────────────────────────────────────────────────────── */
+.listPage {
+  padding: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  border-bottom: 2px solid $color-black;
+  padding-bottom: 16px;
+}
+
+.groupList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groupCard {
+  border: 1px solid $color-black;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover { background: #f5f5f5; }
+}
+
+.groupCardLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sportName {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.matchDate {
+  font-size: 13px;
+  color: $color-text-muted;
+}
+
+.groupCardRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.groupStatus {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  border: 1px solid $color-border;
+  padding: 2px 8px;
+}
+
+.respondButtons {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.confirmBtn {
+  background: $color-black;
+  color: $color-white;
+  border: none;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:hover { opacity: 0.8; }
+}
+
+.declineBtn {
+  background: $color-white;
+  color: $color-black;
+  border: 1px solid $color-black;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  &:hover { background: #f5f5f5; }
+}
+
+/* ── SHARED ───────────────────────────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 64px);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.empty {
+  font-size: 13px;
+  color: $color-text-muted;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.pollCard {
+  border: 1px solid $color-black;
+  padding: 16px;
+  margin-top: 16px;
+
+  h3 { font-size: 14px; margin-bottom: 12px; }
+
+  .option {
+    border: 1px solid $color-border;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    &:hover { background: #f0f0f0; }
+    &.selected { border-color: $color-black; font-weight: 700; }
+  }
+}

@@ -1,13 +1,14 @@
 import { useAuth } from '../../context/authContext';
 import { useLocation, Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home'; 
-import GridViewIcon from '@mui/icons-material/GridView'; 
+import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
+import GroupsIcon from '@mui/icons-material/Groups';
 import PersonIcon from '@mui/icons-material/Person'; 
 import styles from './NavBar.module.scss';
 import { Button } from '../../components/Button/Button';
 
 const Navbar = () => {
-  const { isAuthenticated} = useAuth(); 
+  const { isAuthenticated } = useAuth(); 
   const location = useLocation();
 
   const hiddenRoutes = ['/login', '/register', '/welcome'];
@@ -16,9 +17,11 @@ const Navbar = () => {
     return null;
   }
 
+  // Am actualizat rutele pentru platforma de sport
   const mainLinks = [
-    { to: '/dashboard', label: 'Overview', icon: <HomeIcon /> },
-    { to: '/projects', label: 'Projects', icon: <GridViewIcon /> },
+    { to: '/matches', label: 'My Matches', icon:  <HomeIcon /> },
+    { to: '/sports', label: 'Sports', icon: <SportsKabaddiIcon /> },
+    { to: '/groups', label: 'Groups', icon: <GroupsIcon /> },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -40,7 +43,7 @@ const Navbar = () => {
     <>
       <aside className={styles.sidebar}>
         <div className={styles.sidebar__header}>
-          <div className={styles['sidebar__header-title']}>WORKSPACE</div>
+          <div className={styles['sidebar__header-title']}>SHOWUP2MOVE</div>
         </div>
 
         <nav className={styles.sidebar__nav}>
@@ -58,12 +61,12 @@ const Navbar = () => {
 
         <div className={styles.sidebar__footer}>
           <button className={styles['sidebar__footer-btn']}>
-            New Project
+            + Quick Match
           </button>
-
         </div>
       </aside>
 
+      {/* Varianta de Mobile (Bottom Bar) */}
       <nav className={styles.bottomBar}>
         {mainLinks.map((link) => (
           <Link
@@ -75,8 +78,8 @@ const Navbar = () => {
           </Link>
         ))}
         <Link
-          to="/settings"
-          className={`${styles.bottomBar__link} ${isActive('/settings') ? styles['bottomBar__link--active'] : ''}`}
+          to="/profile"
+          className={`${styles.bottomBar__link} ${isActive('/profile') ? styles['bottomBar__link--active'] : ''}`}
         >
           <PersonIcon />
         </Link>

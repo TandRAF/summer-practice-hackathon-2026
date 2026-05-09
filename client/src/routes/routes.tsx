@@ -7,6 +7,9 @@ import { NoFoundPage } from "../pages/NoFoundPage/NoFoundPage";
 import { UiKitPage } from "../pages/UiKitPage/UiKitPage";
 import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RootRoute } from "./RoorRoute/RootRoute";
+import { DashboardPage } from "../pages/DashboardPage/DashboardPage";
+import { SportsPage } from "../pages/SportsPage/SportsPage";
+import { GroupsPage } from "../pages/GroupsPage/GroupsPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,8 +25,10 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute />, 
         children: [
           // { path: "welcome", element:<WelcomePage/>},
-          { path: "profile", element: <ProfilePage/> },
-
+          { path: "/profile", element: <ProfilePage/> },
+          { path: "/sports", element: <SportsPage /> },
+          { path: "/matches", element: <DashboardPage/> },
+          { path: "/groups", element: <GroupsPage/> }
         ],
       },
       {

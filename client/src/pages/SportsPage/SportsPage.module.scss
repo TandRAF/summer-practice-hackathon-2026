@@ -1,0 +1,115 @@
+/* SportsPage.module.scss */
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-border: #e5e5e5;
+$color-text-muted: #717171;
+$color-surface-hover: #f9f9f9;
+
+$font-inter: 'Inter', sans-serif;
+$font-mono: monospace;
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  font-family: $font-inter;
+  background-color: $color-white;
+  color: $color-black;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 48px;
+  border-bottom: 2px solid $color-black;
+  padding-bottom: 16px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+  }
+  
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 16px;
+  }
+}
+
+.loadingBar {
+  height: 2px;
+  background-color: $color-black;
+  width: 30%;
+  animation: loading 1.5s infinite ease-in-out;
+  margin-bottom: 16px;
+}
+
+@keyframes loading {
+  0% { transform: translateX(0); width: 10%; }
+  50% { width: 50%; }
+  100% { transform: translateX(300px); width: 10%; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid $color-border;
+  padding: 24px;
+  background-color: $color-white;
+  transition: border-color 0.2s;
+
+  &.activeCard {
+    border: 2px solid $color-black; // Highlight pentru sporturile deja alese
+  }
+}
+
+.sportName {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.skillLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillChip {
+  background: none;
+  border: 1px solid $color-border;
+  padding: 8px 16px;
+  font-family: $font-mono;
+  font-size: 13px;
+  color: $color-text-muted;
+  cursor: pointer;
+  border-radius: 0; // Strict 0px radius
+
+  &:hover {
+    background-color: $color-surface-hover;
+    color: $color-black;
+    border-color: $color-black;
+  }
+
+  &.active {
+    background-color: $color-black;
+    color: $color-white;
+    border-color: $color-black;
+  }
+}

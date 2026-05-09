@@ -1,0 +1,15 @@
+FROM node:20-alpine
+WORKDIR /app
+
+# Instalam dependințele
+COPY package*.json ./
+RUN npm install
+
+# Nu dăm COPY . . aici, deoarece vom folosi un volum în docker-compose 
+# pentru a sincroniza fișierele live!
+
+# Expunem portul standard Vite
+EXPOSE 5173
+
+# Pornim serverul de development
+CMD ["npm", "run", "dev", "--", "--host"]

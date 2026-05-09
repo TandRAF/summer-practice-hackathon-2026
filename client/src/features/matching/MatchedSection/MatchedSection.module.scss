@@ -1,0 +1,47 @@
+@use "../../../styles/index.scss" as *;
+
+.matchCardSolid {
+  border: 2px solid #000000;
+  padding: 32px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  border: 1px solid #000000;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.badgeSolid {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.actionBtn {
+  width: 100%;
+  background: transparent;
+  border: 2px solid #000000;
+  padding: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+}

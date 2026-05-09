@@ -8,7 +8,11 @@ import { Button } from '../../components/Button/Button';
 const HeaderNav = () => {
   const location = useLocation();
   const { user } = useAuth();
-const {profile} = useProfile();
+  const {profile} = useProfile();
+  const hiddenRoutes = ['/login', '/register', '/welcome'];
+    if (hiddenRoutes.includes(location.pathname)) {
+    return null;
+  }
 
   const pathnames = location.pathname.split('/').filter((x) => x);
     console.log(user);
