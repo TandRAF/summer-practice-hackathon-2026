@@ -89,9 +89,15 @@ export const DashboardPage: React.FC = () => {
                 {pendingGroups.map((member: GroupMemberModel) => (
                   <li key={member.id}>
                     <div className={styles.groupInfo}>
-                      <h3 className={styles.sportName}>
+                      
+                      {/* SPORT TITLE + AI SCORE BADGE */}
+                      <h3 className={styles.sportName} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         {member.match_groups?.sports?.name ?? 'Sport Match'}
+                        <span style={{ fontSize: '10px', fontWeight: 800, border: '1px solid #000', padding: '2px 6px', letterSpacing: '0.05em' }}>
+                          ⚡ AI SCORE: {member.match_groups?.system_compatibility_score ? `${member.match_groups.system_compatibility_score}%` : 'CALCULATING'}
+                        </span>
                       </h3>
+
                       <p className={styles.metaData}>
                         DATE: {member.match_groups?.match_date}
                         {' | '}
@@ -114,9 +120,11 @@ export const DashboardPage: React.FC = () => {
                       >
                         DECLINE
                       </button>
+                      
+                      {/* FIXED NAVIGATION */}
                       <button
                         className={styles.ghostButton}
-                        onClick={() => navigate(`/groups`)}
+                        onClick={() => navigate(`/group/${member.match_groups?.id}`)}
                       >
                         VIEW →
                       </button>
@@ -136,9 +144,15 @@ export const DashboardPage: React.FC = () => {
                 {confirmedGroups.map((member: GroupMemberModel) => (
                   <li key={member.id}>
                     <div className={styles.groupInfo}>
-                      <h3 className={styles.sportName}>
+                      
+                      {/* SPORT TITLE + AI SCORE BADGE */}
+                      <h3 className={styles.sportName} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         {member.match_groups?.sports?.name ?? 'Sport Match'}
+                        <span style={{ fontSize: '10px', fontWeight: 800, border: '1px solid #000', padding: '2px 6px', letterSpacing: '0.05em' }}>
+                          ⚡ AI SCORE: {member.match_groups?.system_compatibility_score ? `${member.match_groups.system_compatibility_score}%` : 'CALCULATING'}
+                        </span>
                       </h3>
+
                       <p className={styles.metaData}>
                         DATE: {member.match_groups?.match_date}
                         {' | '}
@@ -147,9 +161,11 @@ export const DashboardPage: React.FC = () => {
                     </div>
                     <div className={styles.actionGroup}>
                       <span className={`${styles.tag} ${styles.active}`}>CONFIRMED</span>
+                      
+                      {/* FIXED NAVIGATION */}
                       <button
                         className={styles.ghostButton}
-                        onClick={() => navigate(`/groups`)}
+                        onClick={() => navigate(`/group/${member.match_groups?.id}`)}
                       >
                         OPEN CHAT →
                       </button>

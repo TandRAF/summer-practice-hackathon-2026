@@ -1,20 +1,20 @@
-# Imaginea de bază stabilă
-FROM node:20-alpine
-
-# Setăm folderul de lucru în container
+# Stage 1: Build
+FROM node:20-alpine as build
 WORKDIR /app
-
-# Copiem fișierele de dependențe
 COPY package*.json ./
-
-# Instalăm dependențele de producție
 RUN npm install
-
-# Copiem restul codului sursă
 COPY . .
+# Aici se generează folderul /app/dist
+RUN npm run build 
 
-# Compilăm codul TypeScript
-RUN npm run build
+# Stage 2: Runtime
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+# Instalăm doar dependențele de producție
+RUN npm install --production
+# CRITIC: Copiem folderul dist din etapa de build!
+COPY --from=build /app/dist ./dist 
 
-# Comanda de start pentru producție
-CMD ["npm", "start"]
+# Heroku are nevoie de variabila PORT
+CMD ["node", "dist/index.js"]

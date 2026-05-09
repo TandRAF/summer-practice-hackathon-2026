@@ -20,7 +20,9 @@ export interface MatchGroupModel {
   match_date: string;
   status: string;
   sports: SportInfo;
-  group_members?: GroupMemberDetail[]; // ACEASTA ERA PROPRIETATEA LIPSĂ!
+  group_members?: GroupMemberDetail[];
+  system_compatibility_score?: number;
+  // ACEASTA ERA PROPRIETATEA LIPSĂ!
 }
 
 export interface GroupMemberModel {
