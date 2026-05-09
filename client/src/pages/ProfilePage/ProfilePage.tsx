@@ -164,48 +164,6 @@ const handleSaveProfile = async (e: React.FormEvent<HTMLFormElement>) => {
             </div>
           </section>
 
-          {/* ... [Team Memberships section remains unchanged] ... */}
-          <section className={`${styles.section} ${styles.col12}`}>
-            <h2 className={styles.sectionTitle}>Team Memberships</h2>
-            <div className={styles.teamGrid}>
-              <div className={styles.teamCard}>
-                <div className={styles.teamHeader}>
-                  <h3 className={styles.teamTitle}>Core Platform</h3>
-                  <VerifiedUserIcon className={styles.teamIcon} />
-                </div>
-                <p className={styles.teamDesc}>Developing the foundational architecture for the TEAM/FEEDBACK engine.</p>
-                <div className={styles.teamMeta}>
-                  <span className={`${styles.teamRole} ${styles.roleAdmin}`}>ADMIN</span>
-                  <span className={styles.teamCount}>12 MEMBERS</span>
-                </div>
-              </div>
-
-              <div className={styles.teamCard}>
-                <div className={styles.teamHeader}>
-                  <h3 className={styles.teamTitle}>UI Excellence</h3>
-                  <PaletteIcon className={styles.teamIcon} />
-                </div>
-                <p className={styles.teamDesc}>Ensuring consistent visual language and accessibility across all modules.</p>
-                <div className={styles.teamMeta}>
-                  <span className={`${styles.teamRole} ${styles.roleLead}`}>LEAD</span>
-                  <span className={styles.teamCount}>5 MEMBERS</span>
-                </div>
-              </div>
-
-              <div className={styles.teamCard}>
-                <div className={styles.teamHeader}>
-                  <h3 className={styles.teamTitle}>Strategy 2024</h3>
-                  <AnalyticsIcon className={styles.teamIcon} />
-                </div>
-                <p className={styles.teamDesc}>High-level roadmap planning and quarterly objective alignment.</p>
-                <div className={styles.teamMeta}>
-                  <span className={`${styles.teamRole} ${styles.roleContributor}`}>CONTRIBUTOR</span>
-                  <span className={styles.teamCount}>24 MEMBERS</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
         </div>
       </div>
     </div>
