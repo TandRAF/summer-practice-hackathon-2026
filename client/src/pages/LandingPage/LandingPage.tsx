@@ -1,7 +1,7 @@
 import { TextBanner } from "../../components/TextBanner/TextBanner"
 import { ServiceCards } from "../../components/ServiceCards/ServiceCards"
 import styles from "./LandingPage.module.scss"
-import bannerImage from "../../assets/landingImages/bg-image.png"
+import bannerImage from '../../assets/landingImages/bannerImage.jpg'
 
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
